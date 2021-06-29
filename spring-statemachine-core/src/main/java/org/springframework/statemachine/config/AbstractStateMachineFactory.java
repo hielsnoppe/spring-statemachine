@@ -886,7 +886,7 @@ public abstract class AbstractStateMachineFactory<S, E> extends LifecycleObjectS
 				}
 				DefaultExternalTransition<S, E> transition = new DefaultExternalTransition<S, E>(stateMap.get(source),
 						stateMap.get(target), transitionData.getActions(), event, transitionData.getGuard(), trigger,
-						transitionData.getSecurityRule());
+						transitionData.getSecurityRule(), transitionData.getName());
 				transitions.add(transition);
 
 			} else if (transitionData.getKind() == TransitionKind.LOCAL) {
@@ -896,12 +896,12 @@ public abstract class AbstractStateMachineFactory<S, E> extends LifecycleObjectS
 				}
 				DefaultLocalTransition<S, E> transition = new DefaultLocalTransition<S, E>(stateMap.get(source),
 						stateMap.get(target), transitionData.getActions(), event, transitionData.getGuard(), trigger,
-						transitionData.getSecurityRule());
+						transitionData.getSecurityRule(), transitionData.getName());
 				transitions.add(transition);
 			} else if (transitionData.getKind() == TransitionKind.INTERNAL) {
 				DefaultInternalTransition<S, E> transition = new DefaultInternalTransition<S, E>(stateMap.get(source),
 						transitionData.getActions(), event, transitionData.getGuard(), trigger,
-						transitionData.getSecurityRule());
+						transitionData.getSecurityRule(), transitionData.getName());
 				transitions.add(transition);
 			}
 		}

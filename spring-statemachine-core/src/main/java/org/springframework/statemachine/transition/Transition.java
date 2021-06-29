@@ -99,6 +99,13 @@ public interface Transition<S, E> {
 	 * @return the security rule
 	 */
 	SecurityRule getSecurityRule();
+	
+	/**
+	 * Gets the name.
+	 * 
+	 * @return the name
+	 */
+	String getName();
 
 	/**
 	 * Adds the action listener.

@@ -53,4 +53,20 @@ public class DefaultInternalTransition<S, E> extends AbstractInternalTransition<
 			Trigger<S, E> trigger, SecurityRule securityRule) {
 		super(source, actions, event, guard, trigger, securityRule);
 	}
+	
+	/**
+	 * Instantiates a new default internal transition.
+	 *
+	 * @param source the source
+	 * @param actions the actions
+	 * @param event the event
+	 * @param guard the guard
+	 * @param trigger the trigger
+	 * @param securityRule the security rule
+	 * @param name the name
+	 */
+	public DefaultInternalTransition(State<S, E> source, Collection<Action<S, E>> actions, E event, Guard<S, E> guard,
+			Trigger<S, E> trigger, SecurityRule securityRule, String name) {
+		super(source, actions, event, guard, trigger, securityRule, name);
+	}
 }

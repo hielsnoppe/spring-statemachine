@@ -35,6 +35,23 @@ public abstract class AbstractExternalTransition<S, E> extends AbstractTransitio
 	 * @param guard the guard
 	 * @param trigger the trigger
 	 * @param securityRule the security rule
+	 * @param name the name
+	 */
+	public AbstractExternalTransition(State<S, E> source, State<S, E> target, Collection<Action<S, E>> actions,
+			E event, Guard<S, E> guard, Trigger<S, E> trigger, SecurityRule securityRule, String name) {
+		super(source, target, actions, event, TransitionKind.EXTERNAL, guard, trigger, securityRule, name);
+	}
+	
+	/**
+	 * Instantiates a new abstract external transition.
+	 *
+	 * @param source the source
+	 * @param target the target
+	 * @param actions the actions
+	 * @param event the event
+	 * @param guard the guard
+	 * @param trigger the trigger
+	 * @param securityRule the security rule
 	 */
 	public AbstractExternalTransition(State<S, E> source, State<S, E> target, Collection<Action<S, E>> actions,
 			E event, Guard<S, E> guard, Trigger<S, E> trigger, SecurityRule securityRule) {

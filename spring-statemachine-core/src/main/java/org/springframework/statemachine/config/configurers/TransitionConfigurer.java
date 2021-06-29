@@ -126,4 +126,13 @@ public interface TransitionConfigurer<T, S, E> extends
 	 */
 	T secured(String expression);
 
+	/**
+	 * Specify a name for this {@link Transition}.
+	 * 
+	 * @param name the name
+	 * @return configurer for chaining
+	 * @param name
+	 * @return
+	 */
+	T name(String name);
 }

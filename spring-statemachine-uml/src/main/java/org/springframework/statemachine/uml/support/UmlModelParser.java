@@ -425,12 +425,12 @@ public class UmlModelParser {
 							if (cprentries != null && cprentries.size() == 1) {
 								addTransitionData(new TransitionData<String, String>(resolveName(transition.getSource()),
 										cprentries.get(0).getName(), signal.getName(), UmlUtils.resolveTransitionActions(transition, resolver),
-										guard, UmlUtils.mapUmlTransitionType(transition)));
+										guard, UmlUtils.mapUmlTransitionType(transition), transition.getName()));
 							}
 						} else {
 							addTransitionData(new TransitionData<String, String>(resolveName(transition.getSource()),
 									resolveName(transition.getTarget()), signal.getName(), UmlUtils.resolveTransitionActions(transition, resolver),
-									guard, UmlUtils.mapUmlTransitionType(transition)));
+									guard, UmlUtils.mapUmlTransitionType(transition), transition.getName()));
 						}
 					}
 				} else if (event instanceof TimeEvent) {
@@ -443,7 +443,7 @@ public class UmlModelParser {
 						}
 						addTransitionData(new TransitionData<String, String>(resolveName(transition.getSource()),
 								resolveName(transition.getTarget()), period, count, UmlUtils.resolveTransitionActions(transition, resolver),
-								guard, UmlUtils.mapUmlTransitionType(transition)));
+								guard, UmlUtils.mapUmlTransitionType(transition), transition.getName()));
 					}
 				}
 			}
@@ -452,7 +452,7 @@ public class UmlModelParser {
 			if (shouldCreateAnonymousTransition(transition)) {
 				addTransitionData(new TransitionData<String, String>(resolveName(transition.getSource()), resolveName(transition.getTarget()),
 						null, UmlUtils.resolveTransitionActions(transition, resolver), resolveGuard(transition),
-						UmlUtils.mapUmlTransitionType(transition)));
+						UmlUtils.mapUmlTransitionType(transition), transition.getName()));
 			}
 		}
 	}
